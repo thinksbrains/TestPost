@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+
 import com.thinksbrain.testpost.UI.TrabajoAdapter;
 
 
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
             list_trabajos.add(vector_trabajos[i]);
         }
         //Asociando el Recycle View Trabajos
+
+        Log.e("cantidad trabajos",""+list_trabajos.size());
         mRecyclerView = (RecyclerView)findViewById(R.id.recycle_view_trabajos);
         mRecyclerView.setHasFixedSize(true);
 
@@ -46,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new TrabajoAdapter();
+        mAdapter = new TrabajoAdapter(list_trabajos);
         mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setDataSet(list_trabajos);
+        //mAdapter.setDataSet(list_trabajos);
     }
 }

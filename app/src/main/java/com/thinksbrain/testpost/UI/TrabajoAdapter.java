@@ -5,7 +5,9 @@ package com.thinksbrain.testpost.UI;
  */
 
         import android.support.v7.widget.RecyclerView;
+        import android.util.Log;
         import android.view.LayoutInflater;
+        import android.view.View;
         import android.view.ViewGroup;
         import android.widget.TextView;
 
@@ -18,13 +20,19 @@ public class TrabajoAdapter extends RecyclerView.Adapter<TrabajoAdapter.ViewHold
 
     private ArrayList<Trabajos> mDataSet;
 
+    public TrabajoAdapter(ArrayList<Trabajos> mDataSet) {
+        this.mDataSet = mDataSet;
+        Log.e("cantidad trabajos",""+mDataSet.size());
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textView;
-        public ViewHolder(TextView tv) {
-            super(tv);
-            textView = tv;
+        public TextView titulo,correo,costo;
+        ViewHolder(View itemView) {
+            super(itemView);
+            titulo = (TextView) itemView.findViewById(R.id.titulo);
+            correo = (TextView) itemView.findViewById(R.id.correo);
+            costo = (TextView) itemView.findViewById(R.id.costo);
         }
     }
 
@@ -43,20 +51,18 @@ public class TrabajoAdapter extends RecyclerView.Adapter<TrabajoAdapter.ViewHold
     public TrabajoAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                         int viewType) {
 
-        TextView tv = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.trabajo_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.trabajo_view, parent, false);
+        ViewHolder pvh = new ViewHolder(v);
+        return pvh;
 
-
-
-        ViewHolder vh = new ViewHolder(tv);
-        return vh;
     }
 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int i) {
-
-        holder.textView.setText(mDataSet.get(i).getTitulo());
+        holder.titulo.setText(mDataSet.get(i).getTitulo());
+        holder.correo.setText(mDataSet.get(i).getEmail());
+        holder.costo.setText(String.valueOf(mDataSet.get(i).getSalario()));
     }
 
     @Override
