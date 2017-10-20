@@ -22,7 +22,7 @@ public class Variables {
                     "Empresa Thinks Brains requiere universitarios q quieran ganar experiencia y trabajar" +
                             "se les dara preparacion",
                     20000,"45856525","thinksbrain@gmail.com"),
-            new Trabajos("BUSCO ENPLEO INTERNA",
+            new Trabajos("BUSCO EMPLEO INTERNA",
                     "Chica responsable y con mucha experiencia busca empleo de " +
                             "cuidado de personas mayores niños tareas del hogar disponible de inmediato",
                     1000,"70401015","lancil0245@gmail.com"),
