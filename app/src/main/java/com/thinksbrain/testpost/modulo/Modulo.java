@@ -7,4 +7,6 @@ package com.thinksbrain.testpost.modulo;
 public class Modulo {
     //Este es mi nuevo modulo
     //Prueba de Comentario por Amilkar
+    //modulo modificado por Jhans
+    //Probando mi cambio
 }
